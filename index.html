@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ASIA - Futurista</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+            color: #fff;
+            font-family: 'Orbitron', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        header {
+            background: rgba(20, 30, 48, 0.95);
+            padding: 32px 0 24px 0;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(0,255,255,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        h1 {
+            font-size: 2.8rem;
+            letter-spacing: 0.15em;
+            color: #00fff7;
+            margin: 0;
+            text-shadow: 0 0 12px #00fff7, 0 0 32px #0ff;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b2fefa;
+            margin-top: 8px;
+            letter-spacing: 0.1em;
+        }
+        section {
+            max-width: 700px;
+            margin: 60px auto;
+            background: rgba(44, 83, 100, 0.85);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,255,255,0.08);
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        section::before {
+            content: "";
+            position: absolute;
+            top: -80px; left: -80px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, #00fff7 0%, transparent 70%);
+            opacity: 0.18;
+            z-index: 0;
+            animation: float1 6s infinite alternate;
+        }
+        section::after {
+            content: "";
+            position: absolute;
+            bottom: -80px; right: -80px;
+            width: 180px; height: 180px;
+            background: radial-gradient(circle, #b2fefa 0%, transparent 70%);
+            opacity: 0.13;
+            z-index: 0;
+            animation: float2 7s infinite alternate;
+        }
+        @keyframes float1 {
+            to { transform: translateY(30px) scale(1.1);}
+        }
+        @keyframes float2 {
+            to { transform: translateY(-30px) scale(1.05);}
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        .scroll-effect {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: all 0.8s cubic-bezier(.23,1.02,.32,1);
+        }
+        .scroll-effect.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 14px 38px;
+            background: linear-gradient(90deg, #00fff7 0%, #b2fefa 100%);
+            color: #0f2027;
+            font-weight: bold;
+            border: none;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            box-shadow: 0 2px 16px #00fff7a0;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+        }
+        .btn:hover {
+            background: linear-gradient(90deg, #b2fefa 0%, #00fff7 100%);
+            color: #222;
+            transform: scale(1.05);
+        }
+        @media (max-width: 700px) {
+            section { padding: 28px 10px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ASIA</h1>
+        <div class="subtitle">Tecnología Futurista para un Nuevo Mundo</div>
+    </header>
+    <section class="scroll-effect">
+        <div class="content">
+            <h2>Innovación y Futuro</h2>
+            <p>
+                ASIA es una plataforma dedicada a la integración de inteligencia artificial y tecnologías avanzadas para transformar el mañana. Descubre cómo la innovación puede mejorar tu vida y tu entorno.
+            </p>
+            <a href="#" class="btn">Explorar</a>
+        </div>
+    </section>
+    <section class="scroll-effect">
+        <div class="content">
+            <h2>Soluciones Inteligentes</h2>
+            <p>
+                Desde automatización hasta análisis predictivo, nuestras soluciones están diseñadas para empresas y personas que buscan estar a la vanguardia del progreso tecnológico.
+            </p>
+        </div>
+    </section>
+    <section class="scroll-effect">
+        <div class="content">
+            <h2>Únete a la Revolución</h2>
+            <p>
+                Sé parte de la comunidad ASIA y accede a recursos, eventos y colaboraciones exclusivas en el mundo de la tecnología futurista.
+            </p>
+        </div>
+    </section>
+    <script>
+        // Efecto scroll para mostrar secciones al hacer scroll
+        function onScrollEffect() {
+            const elements = document.querySelectorAll('.scroll-effect');
+            const triggerBottom = window.innerHeight * 0.85;
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < triggerBottom) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', onScrollEffect);
+        window.addEventListener('DOMContentLoaded', onScrollEffect);
+    </script>
+</body>
+</html>
